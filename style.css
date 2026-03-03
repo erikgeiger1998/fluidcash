@@ -1,0 +1,53 @@
+:root {
+    --bg: #050508;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --accent: #00f2fe;
+    --accent-2: #4facfe;
+    --text: #ffffff;
+    --text-dim: #a0a0b0;
+}
+
+* { margin: 0; padding: 0; box-word: border-box; font-family: 'Inter', -apple-system, sans-serif; }
+
+body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* Navigation */
+nav { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 900; letter-spacing: -1px; background: linear-gradient(to right, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+nav a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; margin-left: 20px; transition: 0.3s; }
+nav a:hover { color: var(--accent); }
+
+/* Hero Section */
+.hero { padding: 100px 0; text-align: center; position: relative; }
+.hero::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, transparent 70%); z-index: -1; }
+
+h1 { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px; }
+.hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 600px; margin: 0 auto 40px; }
+
+.btn { 
+    display: inline-block; padding: 16px 32px; border-radius: 12px; font-weight: 700; text-decoration: none; 
+    transition: 0.3s; transform: scale(1);
+}
+.btn-primary { 
+    background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #000; 
+    box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+}
+.btn:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(79, 172, 254, 0.6); }
+
+/* Content Sections */
+.section { padding: 80px 0; }
+.glass-card { 
+    background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); 
+    padding: 40px; border-radius: 24px; margin-bottom: 20px;
+}
+h2 { font-size: 2.5rem; margin-bottom: 30px; letter-spacing: -1px; }
+.price-tag { font-size: 3rem; font-weight: 900; color: var(--accent); margin: 20px 0; }
+
+footer { padding: 50px 0; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); color: var(--text-dim); font-size: 0.8rem; }
+footer a { color: var(--text-dim); margin: 0 10px; }
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+}
