@@ -1,62 +1,65 @@
 :root {
     --bg: #050508;
-    --card-bg: rgba(255, 255, 255, 0.04);
+    --card-bg: rgba(255, 255, 255, 0.05);
     --accent: #00f2fe;
     --accent-2: #4facfe;
     --text: #ffffff;
     --text-dim: #a0a0b0;
-    --border: rgba(255, 255, 255, 0.1);
+    --border: rgba(255, 255, 255, 0.08);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, sans-serif; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
 
-/* Navigation */
-nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.4rem; font-weight: 900; letter-spacing: -1px; background: linear-gradient(to right, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-nav a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; margin-left: 20px; transition: 0.3s; font-weight: 500; }
-nav a:hover { color: var(--accent); }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
 /* Hero Section */
-.hero { padding: 80px 0 60px; text-align: center; }
-h1 { font-size: 4.5rem; font-weight: 900; line-height: 1.05; margin-bottom: 24px; letter-spacing: -3px; }
-.hero p { font-size: 1.4rem; color: var(--text-dim); max-width: 650px; margin: 0 auto 40px; font-weight: 400; }
+.hero { padding: 120px 0 60px; text-align: center; }
+h1 { font-size: 4rem; font-weight: 900; letter-spacing: -3px; line-height: 1; margin-bottom: 20px; }
+.hero p { color: var(--text-dim); font-size: 1.2rem; margin-bottom: 40px; }
 
-.btn { 
-    display: inline-block; padding: 18px 36px; border-radius: 14px; font-weight: 700; text-decoration: none; 
-    transition: 0.3s; cursor: pointer; border: none; font-size: 1rem;
+/* Bubble Grid System */
+.category-group { margin-bottom: 60px; }
+.category-title { 
+    font-size: 0.9rem; font-weight: 800; text-transform: uppercase; 
+    letter-spacing: 2px; color: var(--accent); margin-bottom: 24px; text-align: center;
 }
+
+.bubble-container { 
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; 
+}
+
+.feature-bubble {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    padding: 16px 28px;
+    border-radius: 50px; /* Ettől lesz "bubble" formája */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: default;
+}
+
+.feature-bubble:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px) scale(1.05);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0, 242, 254, 0.15);
+}
+
+.feature-bubble i { font-style: normal; font-size: 1.2rem; }
+.feature-bubble span { font-size: 0.95rem; font-weight: 600; }
+
+/* Gombok és egyéb */
 .btn-primary { 
-    background: #fff; color: #000; box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+    background: #fff; color: #000; padding: 18px 40px; border-radius: 50px; 
+    text-decoration: none; font-weight: 800; transition: 0.3s;
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 50px rgba(255, 255, 255, 0.3); }
-
-/* Feature Dropdown (Accordion) */
-.features-catalog { margin-top: 60px; border-top: 1px solid var(--border); }
-details { border-bottom: 1px solid var(--border); padding: 20px 0; }
-summary { 
-    list-style: none; font-size: 1.2rem; font-weight: 700; cursor: pointer; 
-    display: flex; justify-content: space-between; align-items: center; color: var(--accent);
-}
-summary::-webkit-details-marker { display: none; }
-summary::after { content: '+'; font-size: 1.5rem; transition: 0.3s; }
-details[open] summary::after { transform: rotate(45deg); }
-.details-content { padding: 20px 0; color: var(--text-dim); }
-.feature-item { margin-bottom: 15px; }
-.feature-item strong { color: #fff; display: block; margin-bottom: 4px; }
-
-/* Legal Content */
-.legal-content h2 { margin: 40px 0 20px; font-size: 1.8rem; color: #fff; }
-.legal-content h3 { margin: 25px 0 10px; font-size: 1.2rem; color: var(--accent); }
-.legal-content p, .legal-content li { color: var(--text-dim); margin-bottom: 15px; font-size: 1rem; }
-.legal-content ul { padding-left: 20px; }
-
-footer { padding: 80px 0 40px; text-align: center; color: var(--text-dim); font-size: 0.8rem; }
-footer a { color: var(--accent); text-decoration: none; }
 
 @media (max-width: 768px) {
-    h1 { font-size: 2.8rem; letter-spacing: -1.5px; }
-    .hero p { font-size: 1.1rem; }
+    h1 { font-size: 2.5rem; }
+    .feature-bubble { padding: 12px 20px; font-size: 0.85rem; }
 }
